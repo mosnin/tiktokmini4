@@ -1,0 +1,235 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 10, 16, 0.72);
+  backdrop-filter: blur(2px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ---------------- promotion ---------------- */
+
+.promo-card {
+  background: linear-gradient(160deg, #2d3548, #1a2030);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 22px 18px;
+  width: min(92vw, 380px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.promo-title {
+  color: #ffd23f;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.promo-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.promo-btn {
+  background: linear-gradient(180deg, #f0d9b5, #b58863);
+  border: 2px solid #5a3a22;
+  border-radius: 12px;
+  padding: 10px 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.promo-glyph {
+  font-size: 34px;
+  color: #fbf6ea;
+  -webkit-text-stroke: 1.2px #8a5a20;
+  paint-order: stroke fill;
+}
+
+.promo-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #3a2a10;
+}
+
+/* ---------------- revive ---------------- */
+
+.revive-card {
+  background: linear-gradient(160deg, #3a1f28, #200f16);
+  border: 2px solid rgba(255, 90, 107, 0.5);
+  border-radius: 22px;
+  padding: 26px 22px;
+  width: min(92vw, 380px);
+  box-shadow: 0 0 40px rgba(255, 60, 60, 0.25), 0 20px 50px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.revive-icon-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  animation: revive-beat 1s ease-in-out infinite;
+}
+
+@keyframes revive-beat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.14); }
+  30% { transform: scale(1); }
+}
+
+.revive-title {
+  color: #ff8a94;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.revive-sub {
+  color: #f0d8dc;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.revive-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.revive-btn-accept {
+  background: linear-gradient(180deg, #ff8a5a, #e8402f);
+  color: #fff;
+  box-shadow: 0 6px 0 #a02318, 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.revive-btn-accept:active { transform: translateY(4px); box-shadow: 0 2px 0 #a02318; }
+
+.revive-btn-decline {
+  background: transparent;
+  color: #c7aab0;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------- ad chip shared ---------------- */
+
+.rs-adchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  padding: 2px 7px;
+  font-size: 11px;
+  margin-right: 6px;
+}
+
+/* ---------------- fake ad ---------------- */
+
+.ad-overlay { z-index: 80; }
+
+.ad-card {
+  background: linear-gradient(160deg, #1a1e2b, #0d0f16);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 20px;
+  width: min(92vw, 380px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.ad-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #9aa3b5;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.ad-fake-screen {
+  background: repeating-linear-gradient(135deg, #2a3350, #2a3350 12px, #232b45 12px, #232b45 24px);
+  border-radius: 14px;
+  padding: 34px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ad-fake-logo {
+  color: #fff;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ad-fake-sub {
+  color: #8b93a8;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.ad-bar-track {
+  height: 10px;
+  border-radius: 6px;
+  background: #0d0f16;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.ad-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade60, #22b53c);
+  transition: width 60ms linear;
+}
+
+.ad-wait {
+  color: #9aa3b5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ad-claim-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  background: linear-gradient(180deg, #4ade60, #22b53c);
+  color: #06280f;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #146024, 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ad-claim-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #146024; }

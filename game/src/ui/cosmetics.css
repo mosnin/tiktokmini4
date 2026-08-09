@@ -1,0 +1,77 @@
+.cs-root {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 50% 0%, #232a3d 0%, #12151f 55%, #0a0c12 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.cs-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(12px, env(safe-area-inset-top)) 14px 8px;
+}
+
+.cs-iconbtn { background: none; border: none; cursor: pointer; padding: 0; }
+
+.cs-title { color: #ffd23f; font-weight: 900; font-size: 15px; letter-spacing: 1px; }
+
+.cs-coins {
+  display: flex; align-items: center; gap: 5px; background: rgba(0, 0, 0, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.18); border-radius: 999px; padding: 6px 12px 6px 8px;
+  color: #ffe9a8; font-weight: 800; font-size: 13px;
+}
+
+.cs-grid {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 16px;
+}
+
+.cs-card {
+  background: linear-gradient(160deg, #2d3548, #1a2030);
+  border: 2.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.cs-card-selected { border-color: #ffd23f; box-shadow: 0 0 0 3px rgba(255, 210, 63, 0.3); }
+
+.cs-preview {
+  width: 100%;
+  height: 76px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #3a4257, #23283a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cs-preview .piece { font-size: 44px; }
+
+.cs-name { color: #fff; font-weight: 800; font-size: 13px; }
+
+.cs-tag {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #9aa3b5;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cs-tag-selected { color: #4ade60; }
+.cs-tag-ad { color: #ffd23f; }
+.cs-tag-money { color: #ffe9a8; }
