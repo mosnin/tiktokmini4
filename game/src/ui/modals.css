@@ -1,15 +1,22 @@
+/* Centred with an AUTO MARGIN on the card rather than align-items:center, so a
+   card taller than the viewport scrolls instead of being clipped top and
+   bottom. These modals carry the rewarded-ad take-back / revive buttons, so a
+   clipped card means a lost impression AND a stuck player. */
 .modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 60;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: rgba(8, 10, 16, 0.72);
   backdrop-filter: blur(2px);
-  padding: 20px;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
   box-sizing: border-box;
 }
+.modal-overlay > * { margin: auto; }
 
 /* ---------------- promotion ---------------- */
 
@@ -233,3 +240,11 @@
 }
 
 .ad-claim-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #146024; }
+
+/* short viewports: trim the fake-ad filler so real buttons stay in reach */
+@media (max-height: 640px) {
+  .ad-fake-screen { padding: 18px 12px; margin-bottom: 10px; }
+  .ad-fake-logo { font-size: 18px; }
+  .promo-card, .revive-card { padding: 16px 14px; }
+  .revive-btn { padding: 11px; margin-bottom: 8px; }
+}

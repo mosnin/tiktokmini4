@@ -15,6 +15,26 @@
 
 .rs-root * { box-sizing: border-box; }
 
+/* The action row must ALWAYS be on screen — on a short viewport (mobile
+   browser chrome eating height) the tall content column used to push
+   COLLECT below the fold with `overflow: hidden` on the root, leaving the
+   reward unclaimable. Column scrolls in its own box; buttons stay pinned. */
+.rs-scroll {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .rs-dim {
   position: absolute;
   inset: 0;
@@ -182,7 +202,7 @@
   z-index: 1;
   width: 100%;
   max-width: 420px;
-  margin-top: auto;
+  flex: 0 0 auto;
   padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
@@ -311,9 +331,13 @@
 
 /* ---------------- wheel ---------------- */
 
+/* CLAIM/skip row sits under a fixed 260px wheel — on a short viewport it fell
+   off the bottom and the multiplier could never be claimed. */
 .rs-wheel-overlay {
   position: fixed; inset: 0; z-index: 60; background: rgba(10, 14, 22, 0.82);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 14px 12px calc(16px + env(safe-area-inset-bottom));
   pointer-events: auto;
 }
 .rs-wheel-title { color: #ffd23e; font-size: 30px; font-weight: 900; letter-spacing: 2px; margin-bottom: 18px;
@@ -346,4 +370,34 @@
 .rs-flycoin::after {
   content: '$'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   color: #a5680a; font-weight: 900; font-size: 13px; font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+}
+
+/* Short viewports: shrink the decorative furniture first so the card still
+   fits without scrolling on the phones that actually hit this.
+   NB: must stay at the END of the file — placed before the base rules these
+   are silently overridden and nothing shrinks. */
+@media (max-height: 720px) {
+  .rs-medallion { width: 132px; height: 132px; margin: 8px auto 2px; }
+  .rs-sunburst { width: 156px; height: 156px; }
+  .rs-title { font-size: clamp(28px, 7.6vw, 38px); }
+  .rs-earned { font-size: clamp(28px, 7.5vw, 38px); }
+  .rs-bigwin { font-size: 32px; }
+  .rs-starsrow { transform: scale(0.85); }
+  .rs-wheel-title { font-size: 24px; margin-bottom: 10px; }
+  .rs-wheel-box { transform: scale(0.8); margin: -26px 0; }
+  .rs-wheel-actions { margin-top: 14px; }
+}
+
+@media (max-height: 600px) {
+  .rs-medallion { width: 94px; height: 94px; margin: 4px auto 0; }
+  .rs-sunburst { width: 112px; height: 112px; }
+  .rs-title { font-size: clamp(22px, 6.2vw, 30px); }
+  .rs-sub { font-size: 12px; }
+  .rs-earned { font-size: clamp(24px, 6.4vw, 32px); }
+  .rs-bigwin { font-size: 24px; }
+  .rs-starsrow { transform: scale(0.7); }
+  .rs-btn { padding: 12px 8px; font-size: 16px; }
+  .rs-wheel-title { font-size: 20px; margin-bottom: 6px; }
+  .rs-wheel-box { transform: scale(0.62); margin: -49px 0; }
+  .rs-wheel-actions { margin-top: 10px; gap: 6px; }
 }

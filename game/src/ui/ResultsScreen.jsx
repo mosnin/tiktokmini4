@@ -173,6 +173,9 @@ export default function ResultsScreen() {
 
       <div className="rs-coinpill" ref={pillRef}><CoinIcon size={16} />{fmtMoney(money)}</div>
 
+      {/* scroll box keeps the button row below always reachable, however
+          short the viewport gets (mobile browser chrome) */}
+      <div className="rs-scroll">
       <div className="rs-content">
         {bigWin && <div className="rs-bigwin">BIG WIN!</div>}
         <h1 className={`rs-title${!isWin ? ' rs-title-bad' : ''}`}>{title}</h1>
@@ -197,6 +200,7 @@ export default function ResultsScreen() {
             <div className="rs-earned">{fmtMoney(shownEarned)}</div>
           </div>
         )}
+      </div>
       </div>
 
       <div className="rs-buttons">

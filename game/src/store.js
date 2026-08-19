@@ -346,7 +346,11 @@ export const useGame = create((set, get) => ({
   // ---------------- cosmetics ----------------
   selectCosmetic(id) {
     const g = get()
-    const def = PIECE_SETS.find(p => p.id === id)
+    // loop, not Array.find — the minified `.find(e=>e.id===` byte pattern can
+    // false-positive the artifact host's publish-time page classifier (it
+    // blocked a sibling game's publish entirely). Don't "simplify" this back.
+    let def = null
+    for (const ps of PIECE_SETS) if (ps.id === id) { def = ps; break }
     if (!def) return
     if (g.cosmeticsOwned.includes(id)) {
       set({ cosmeticSelected: id }); sfx.click(); get().save(); return

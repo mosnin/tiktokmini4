@@ -10,4 +10,4 @@ export const fmtMoney = n => '$' + fmt(n)
 
 // Bumped every published build — always visible in the corner of the game so
 // there is never ambiguity about which version is actually running.
-export const BUILD = 'chess-v1'
+export const BUILD = 'chess-v2'
